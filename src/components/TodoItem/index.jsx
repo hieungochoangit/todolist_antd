@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Checkbox, Tag } from 'antd';
+import { CloseOutlined } from '@ant-design/icons';
+
+import { removeTodo } from '../../store/action';
+import { useDispatch } from 'react-redux'; 
 
 function TodoItem({ todo }) {
   const [color, setColor] = useState('');
   const [checked, setChecked] = useState(todo.isCompleted);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     switch(todo.level) {
@@ -23,6 +29,10 @@ function TodoItem({ todo }) {
     setChecked(!checked);
   }
 
+  const handleRemoveTodo = (id) => {
+    dispatch(removeTodo(id));
+  }
+
   return (
     // eslint-disable-next-line no-sequences
     <Row style={{ marginTop: 10 }}>
@@ -30,9 +40,12 @@ function TodoItem({ todo }) {
         <Checkbox defaultChecked={checked} onClick={handleClickCompleted}>
           {todo.name}
         </Checkbox>
-        <Tag color={color}>
-          {todo.level}
-        </Tag>
+        <div>
+          <Tag color={color}>
+            {todo.level}
+          </Tag>
+          <CloseOutlined style={{ cursor: 'pointer' }} onClick={() => handleRemoveTodo(todo.id)} />
+        </div>
       </Col>
     </Row>
   );

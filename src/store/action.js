@@ -27,3 +27,10 @@ export const levelValueAction = (data) => {
     payload: data,
   }
 }
+
+export const removeTodo = (id) => {
+  return {
+    type: 'removeTodo',
+    payload: id,
+  }
+}

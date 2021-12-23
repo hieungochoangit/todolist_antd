@@ -12,7 +12,7 @@ function TodoList() {
   const [name, setName] = useState('');
   const [level, setLevel] = useState('medium');
 
-  const todos = useSelector(todoSelector());
+  const todos = useSelector((state) => todoSelector(state));
 
   const handleChangeInput = (e) => {
     setName(e.target.value);

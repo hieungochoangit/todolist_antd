@@ -11,7 +11,7 @@ function Filters(props) {
 
   const handleSearchValue = (e) => {
     setSearchValue(e.target.value);
-    dispatch(searchValueAction(searchValue));
+    dispatch(searchValueAction(e.target.value));
   }
 
   const handleChangeStatus = (e) => {

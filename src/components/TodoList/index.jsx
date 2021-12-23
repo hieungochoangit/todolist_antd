@@ -3,7 +3,7 @@ import { Row, Col, Input, Select, Button } from 'antd';
 import TodoItem from '../TodoItem';
 import { v4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo } from '../../store/action';
+import { addTodoAction } from '../../store/action';
 import { todoSelector } from '../../store/selector';
 
 function TodoList() {
@@ -23,7 +23,7 @@ function TodoList() {
   }
 
   const handleAddTodo = () => {
-    dispatch(addTodo({
+    dispatch(addTodoAction({
       id: v4(),
       name: name,
       isCompleted: false,

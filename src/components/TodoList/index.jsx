@@ -40,7 +40,7 @@ function TodoList() {
           <Input placeholder='Add new todo...' value={name} onChange={handleChangeInput} />
         </Col>
         <Col span={6}>
-          <Select defaultValue={level} style={{ width: '100%' }} onChange={handleChangeLevel}>
+          <Select defaultValue={level} value={level} style={{ width: '100%' }} onChange={handleChangeLevel}>
             <Select.Option value='prioritize'>Prioritize</Select.Option>
             <Select.Option value='medium'>Medium</Select.Option>
             <Select.Option value='low'>Low</Select.Option>

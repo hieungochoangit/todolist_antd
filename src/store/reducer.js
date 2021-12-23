@@ -4,17 +4,28 @@ const initialState = {
     status: '',
     level: [],
   },
-  todo: [],
+  todos: [
+    {
+      id: 1,
+      name: 'html',
+      isCompleted: false,
+      level: 'medium',
+    },
+    {
+      id: 2,
+      name: 'css',
+      isCompleted: false,
+      level: 'low',
+    }
+  ],
 }
 
 const rootReducer = (state = initialState, action) => {
-  console.log(state);
-
   switch (action.type) {
     case 'addTodo':
       return {
         ...state,
-        todo: [...state.todo, action.payload],
+        todos: [...state.todos, action.payload],
       }
     case 'filterSearchValue':
       return {

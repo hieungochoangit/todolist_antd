@@ -1,3 +1,3 @@
 export const todoSelector = (state) => {
-  return state => state.todo;
+  return state => state.todos;
 }

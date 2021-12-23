@@ -4,6 +4,7 @@ import TodoItem from '../TodoItem';
 import { v4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodo } from '../../store/action';
+import { todoSelector } from '../../store/selector';
 
 function TodoList() {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ function TodoList() {
   const [name, setName] = useState('');
   const [level, setLevel] = useState('medium');
 
-  const todos = useSelector((state => state.todo));
+  const todos = useSelector(todoSelector());
 
   const handleChangeInput = (e) => {
     setName(e.target.value);

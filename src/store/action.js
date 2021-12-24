@@ -14,7 +14,6 @@ export const searchValueAction = (data) => {
 }
 
 export const statusValueAction = (data) => {
-  console.log(data);
   return {
     type: 'filterStatusValue',
     payload: data,
@@ -25,6 +24,16 @@ export const levelValueAction = (data) => {
   return {
     type: 'filterLevelValue',
     payload: data,
+  }
+}
+
+export const checkedTodo = (checkedStatus, index) => {
+  return {
+    type: 'checkedTodo',
+    payload: {
+      checked: checkedStatus,
+      index: index
+    },
   }
 }
 

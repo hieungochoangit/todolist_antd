@@ -51,7 +51,7 @@ function TodoList() {
         </Col>
       </Row>
       
-      {todos.map(todo => <TodoItem todo={todo} key={todo.id} />)}
+      {todos.map((todo, index) => <TodoItem todo={todo} index={index} key={todo.id} />)}
     </div>
   );
 }

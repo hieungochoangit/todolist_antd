@@ -1,7 +1,7 @@
 const initialState = {
   filters: {
     search: '',
-    status: '',
+    status: 'all',
     level: [],
   },
   todos: [
@@ -47,6 +47,15 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         todos: [...newTodo]
+      }
+    case 'checkedTodo':
+      const newTodos = state.todos;
+      const todoChange = newTodos[action.payload.index];
+      todoChange.isCompleted = !newTodos[action.payload.index].isCompleted;
+
+      return {
+        ...state,
+        todos: [...newTodos]
       }
     default:
       return state;
